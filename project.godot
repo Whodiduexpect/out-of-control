@@ -21,22 +21,31 @@ _global_script_class_icons={
 [application]
 
 config/name="Out of Control Game"
-run/main_scene="res://src/TitleScreen.tscn"
+run/main_scene="res://src/Levels/Game.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1280
 window/size/height=720
+window/stretch/mode="viewport"
 
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [rendering]
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.227451, 0.294118, 0.376471, 1 )
+environment/default_clear_color=Color( 0.231373, 0.380392, 0.560784, 1 )
 environment/default_environment="res://default_env.tres"
