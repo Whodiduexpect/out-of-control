@@ -66,12 +66,16 @@ func _input(event):
 		var tile_id = self.get_cell(tile_pos.x, tile_pos.y)
 		if tile_id == 1:
 			cures += 1
+			$ResearchAudio.play()
+			get_parent().screenshake()
 			get_parent().update_cure_counter(cures)
 			self.set_cellv(tile_pos, 4)
 		elif tile_id == 3:
 			if cures > 0:
 				self.set_cellv(tile_pos, 0)
 				cures -= 1
+				get_parent().screenshake()
+				$CureAudio.play()
 				get_parent().update_cure_counter(cures)
 	if event.is_action_pressed("ui_cancel") and not simulated:
 		get_tree().change_scene("res://src/TitleScreen.tscn")

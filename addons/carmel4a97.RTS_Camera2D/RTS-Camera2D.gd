@@ -30,7 +30,7 @@ export (bool) var drag = true
 export (bool) var edge = false
 export (bool) var wheel = true
 
-export (int) var zoom_out_limit = 100
+export (int) var zoom_out_limit = 4
 
 # Camera speed in px/s.
 export (int) var camera_speed = 450 
@@ -66,7 +66,6 @@ func _ready():
 	set_follow_smoothing(4)
 
 func _physics_process(delta):
-	
 	# Move camera by keys defined in InputMap (ui_left/top/right/bottom).
 	if key:
 		if __keys[0]:

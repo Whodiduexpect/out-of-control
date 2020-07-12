@@ -24,3 +24,7 @@ func fade_in():
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://src/Levels/EndScreen.tscn")
+
+
+func screenshake():
+	$Camera2D/ScreenShake.start()
