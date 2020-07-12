@@ -8,7 +8,7 @@
 [ext_resource path="res://addons/carmel4a97.RTS_Camera2D/RTS-Camera2D.gd" type="Script" id=6]
 [ext_resource path="res://assets/tiles/decorations.png" type="Texture" id=7]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=2]
 0/name = "decorations.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -92,6 +92,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "Day 1"
 
 [node name="FadeIn" type="ColorRect" parent="HUD"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
@@ -101,26 +102,14 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/FadeIn"]
-anims/fade_in = SubResource( 2 )
+anims/fade_in = SubResource( 1 )
 
 [node name="Decorations" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 2 )
 format = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 640, 255 )
 current = true
 script = ExtResource( 6 )
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 128, 128 )
-emission_shape = 2
-emission_rect_extents = Vector2( 64, 64 )
-direction = Vector2( 0, 0 )
-gravity = Vector2( 0, 1000 )
-initial_velocity = 1000.0
-initial_velocity_random = 1.0
-scale_amount = 11.33
-color = Color( 0.45098, 0.933333, 0.45098, 1 )
 [connection signal="fade_finished" from="HUD/FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="animation_finished" from="HUD/FadeIn/AnimationPlayer" to="HUD/FadeIn" method="_on_AnimationPlayer_animation_finished"]
