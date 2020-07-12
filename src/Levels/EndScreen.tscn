@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Fonts/montserrat_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/Levels/EndScreen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="EndScreen" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_top = 64.0
+margin_right = 1280.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "All infected tiles are gone!"
+align = 1
+
+[node name="ScoreText" type="Label" parent="."]
+margin_top = 192.0
+margin_right = 1280.0
+margin_bottom = 242.0
+custom_fonts/font = SubResource( 1 )
+text = "Your final score is:"
+align = 1
+
+[node name="Score" type="Label" parent="."]
+margin_top = 256.0
+margin_right = 1280.0
+margin_bottom = 306.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explanation" type="Label" parent="."]
+margin_top = 384.0
+margin_right = 1280.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 2 )
+text = "(which is the number of tiles you had alive at the end)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 512.0
+margin_right = 817.0
+margin_bottom = 578.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuButton"]
+margin_right = 369.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.152941, 0.690196, 0.733333, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Back to menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

@@ -19,7 +19,10 @@ func _ready():
 func on_tick():
 	if last_tick_bad:
 		if not self.get_used_cells_by_id(3) and not simulated:
-			print("Done!")
+			var healthy_count = len(self.get_used_cells_by_id(2))
+			var cured_count = len(self.get_used_cells_by_id(0))
+			Global.alive_cells = healthy_count + cured_count
+			get_tree().change_scene("res://src/Levels/EndScreen.tscn")
 	last_tick_bad = true
 	kill_infected(old_infected)
 	old_infected = last_infected
