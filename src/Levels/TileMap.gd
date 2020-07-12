@@ -7,6 +7,7 @@ var cures = 0
 var rng = RandomNumberGenerator.new()
 var zoom = Vector2(1, 1)
 export var wait_time = 5
+export var simulated = false
 var last_tick_bad = false
 
 
@@ -17,7 +18,7 @@ func _ready():
 	
 func on_tick():
 	if last_tick_bad:
-		if not self.get_used_cells_by_id(3):
+		if not self.get_used_cells_by_id(3) and not simulated:
 			print("Done!")
 	last_tick_bad = true
 	kill_infected(old_infected)
@@ -69,3 +70,5 @@ func _input(event):
 				self.set_cellv(tile_pos, 0)
 				cures -= 1
 				get_parent().update_cure_counter(cures)
+	if event.is_action_pressed("ui_cancel") and not simulated:
+		get_tree().change_scene("res://src/TitleScreen.tscn")

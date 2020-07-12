@@ -24,6 +24,10 @@ config/name="bioTile"
 run/main_scene="res://src/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/Global.tscn"
+
 [display]
 
 window/size/width=1280
