@@ -60,7 +60,7 @@ func kill_infected(cells):
 
 
 func _input(event):
-	if event.is_action_pressed("click"):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos = self.world_to_map(mouse_pos)
 		var tile_id = self.get_cell(tile_pos.x, tile_pos.y)
@@ -70,7 +70,11 @@ func _input(event):
 			get_parent().screenshake()
 			get_parent().update_cure_counter(cures)
 			self.set_cellv(tile_pos, 4)
-		elif tile_id == 3:
+	if event.is_action_pressed("right_click"):
+		var mouse_pos = get_global_mouse_position()
+		var tile_pos = self.world_to_map(mouse_pos)
+		var tile_id = self.get_cell(tile_pos.x, tile_pos.y)
+		if tile_id == 3:
 			if cures > 0:
 				self.set_cellv(tile_pos, 0)
 				cures -= 1

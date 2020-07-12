@@ -114,6 +114,7 @@ position = Vector2( 896, -320 )
 current = true
 zoom = Vector2( 3, 3 )
 script = ExtResource( 6 )
+drag = false
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource( 8 )]
 [connection signal="fade_finished" from="HUD/FadeIn" to="." method="_on_FadeIn_fade_finished"]
