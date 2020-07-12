@@ -13,5 +13,8 @@ func _on_PlayButton_pressed():
 	$FadeIn.fade_in()
 
 
+func screenshake():
+	pass
+
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://src/Levels/Game.tscn")
