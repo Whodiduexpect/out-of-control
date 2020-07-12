@@ -22,7 +22,7 @@ func on_tick():
 			var healthy_count = len(self.get_used_cells_by_id(2))
 			var cured_count = len(self.get_used_cells_by_id(0))
 			Global.alive_cells = healthy_count + cured_count
-			get_tree().change_scene("res://src/Levels/EndScreen.tscn")
+			get_parent().fade_in()
 	last_tick_bad = true
 	kill_infected(old_infected)
 	old_infected = last_infected

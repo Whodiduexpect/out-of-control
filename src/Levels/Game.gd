@@ -15,3 +15,12 @@ func set_zoom(zoom):
 func update_day():
 	day += 1
 	$HUD/UI/BottomRow/DayCounter.text = "Day %s" % day
+
+
+func fade_in():
+	$HUD/FadeIn.show()
+	$HUD/FadeIn.fade_in()
+
+
+func _on_FadeIn_fade_finished():
+	get_tree().change_scene("res://src/Levels/EndScreen.tscn")
